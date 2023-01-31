@@ -52,8 +52,10 @@ public class UserService {
         currentUser.setEmail(user.getEmail());
 
         return userRepository.save(currentUser);
+    }
 
-
+    public void deleteUser(long id){
+        userRepository.deleteById(id);
     }
 
 

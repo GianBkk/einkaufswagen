@@ -1,6 +1,7 @@
 package com.einkaufswagen.User;
 
 
+import com.einkaufswagen.Cart.Cart;
 import jakarta.persistence.*;
 import lombok.Builder;
 
@@ -27,6 +28,10 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    private Cart cart;
 
     public Long getId() {
         return id;

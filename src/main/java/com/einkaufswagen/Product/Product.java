@@ -1,9 +1,8 @@
 package com.einkaufswagen.Product;
 
+import com.einkaufswagen.Cart.Cart;
 import jakarta.persistence.*;
 import lombok.Builder;
-
-import java.util.Objects;
 
 @Entity
 @Builder
@@ -26,6 +25,10 @@ public class Product {
 
      @Column(name = "description")
     private String productDescription;
+
+     @ManyToOne
+     @JoinColumn(name = "cart_id", nullable = false)
+    Cart cart;
 
 
     public Long getId() {
